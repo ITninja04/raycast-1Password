@@ -29,6 +29,8 @@ export const CLI_PATH = [preferences.cliPath, "/usr/local/bin/op", "/opt/homebre
   existsSync(path)
 );
 
+export const APP_PATH = [preferences.appPath, "/Applications/1Password.app"].find((path) => existsSync(path));
+
 export const ZSH_PATH = [preferences.zshPath, "/bin/zsh"].find((path) => existsSync(path));
 
 export const errorRegex = new RegExp(/\[\w+\]\s+\d{4}\/\d{2}\/\d{2}\s+\d{2}:\d{2}:\d{2}\s+(.*)$/m);
@@ -129,6 +131,12 @@ export const useOp = <T = Buffer, U = undefined>(args: string[], callback?: (dat
     },
   });
 };
+
+export const useOpen = (appPath: string) => {
+  execSync(`/usr/bin/open ${appPath}`, { shell: ZSH_PATH });
+}
+
+export const openOpApp = () => useOpen(APP_PATH);
 
 export const usePasswords2 = ({
   flags = [],

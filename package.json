@@ -5,6 +5,7 @@
   "description": "Search, open or edit your 1Password passwords from Raycast",
   "icon": "1password-icon.png",
   "author": "khasbilegt",
+  "owner": "itninja04",
   "contributors": [
     "thomas",
     "dteare",
@@ -17,7 +18,8 @@
     "lukah",
     "litomore",
     "Lemon",
-    "vimtor"
+    "vimtor",
+    "itninja04"
   ],
   "past_contributors": [
     "Davidwalser"
@@ -74,6 +76,13 @@
       "subtitle": "1Password",
       "description": "Generate a random password with 1Password.",
       "mode": "view"
+    },
+    {
+      "name": "open-app",
+      "title": "Open Application",
+      "subtitle": "Open 1Password App",
+      "description": "Open 1Password Desktop App",
+      "mode": "no-view"
     }
   ],
   "preferences": [
@@ -171,6 +180,14 @@
       "type": "textfield"
     },
     {
+      "description": "Enter the 1Password Application path",
+      "name": "applicationPath",
+      "placeholder": "e.g., /Applications/1Password.app",
+      "required": false,
+      "title": "1Password Application path",
+      "type": "textfield"
+    },
+    {
       "description": "Enter your ZSH binary path",
       "name": "zshPath",
       "placeholder": "e.g., /bin/zsh",
@@ -199,5 +216,8 @@
     "fix-lint": "ray lint --fix",
     "lint": "ray lint",
     "publish": "ray publish"
-  }
+  },
+  "trustedDependencies": [
+    "@raycast/api"
+  ]
 }
